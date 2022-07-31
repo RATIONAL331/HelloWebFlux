@@ -1,15 +1,13 @@
 package com.example.hellowebflux.dto;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @EqualsAndHashCode
+@NoArgsConstructor
 @ToString
 public class Response {
     private final LocalDateTime date = LocalDateTime.now();

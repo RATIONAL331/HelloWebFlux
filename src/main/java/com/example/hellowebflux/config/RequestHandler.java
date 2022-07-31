@@ -12,6 +12,11 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * https://www.vinsguru.com/spring-webflux-validation/
+ * https://www.baeldung.com/spring-functional-endpoints-validation
+ */
+
 @Service
 @RequiredArgsConstructor
 public class RequestHandler {
