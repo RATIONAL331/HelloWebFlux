@@ -12,9 +12,7 @@ public class DataSetupConfiguration implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/**
-		 * 이 코맨드 라인 러너는 테스트 DB에 직접 붙을 때 유용합니다.
-		 */
+		// 만약 내장 DB로 앱을 띄운다면 유용하게 사용 가능
 //		ProductDto productDto1 = new ProductDto("4k-tv", 1000);
 //		ProductDto productDto2 = new ProductDto("camera", 750);
 //		ProductDto productDto3 = new ProductDto("iphone", 800);
