@@ -14,7 +14,7 @@ public class UserTransactionResponseDto {
 	private UserTransactionStatus status;
 
 	public static UserTransactionResponseDto toDto(UserTransactionRequestDto requestDto,
-	                                              UserTransactionStatus status) {
+	                                               UserTransactionStatus status) {
 		UserTransactionResponseDto responseDto = new UserTransactionResponseDto();
 		responseDto.setUserId(requestDto.getUserId());
 		responseDto.setAmount(requestDto.getAmount());
