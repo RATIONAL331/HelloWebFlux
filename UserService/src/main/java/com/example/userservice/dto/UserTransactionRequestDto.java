@@ -8,6 +8,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserTransactionRequestDto {
-	private int userId;
+	private long userId;
 	private int amount;
 }

@@ -20,7 +20,7 @@ public class UserController {
 	}
 
 	@GetMapping("{id}")
-	public Mono<ResponseEntity<UserDto>> getUserById(@PathVariable int id) {
+	public Mono<ResponseEntity<UserDto>> getUserById(@PathVariable long id) {
 		return userService.getUserByUserId(id)
 		                  .map(ResponseEntity::ok)
 		                  .defaultIfEmpty(ResponseEntity.notFound().build());
@@ -33,14 +33,14 @@ public class UserController {
 	}
 
 	@PutMapping("{id}")
-	public Mono<ResponseEntity<UserDto>> updateUser(@PathVariable int id, @RequestBody Mono<UserDto> userDtoMono) {
+	public Mono<ResponseEntity<UserDto>> updateUser(@PathVariable long id, @RequestBody Mono<UserDto> userDtoMono) {
 		return userService.updateUser(id, userDtoMono)
 		                  .map(ResponseEntity::ok)
 		                  .defaultIfEmpty(ResponseEntity.notFound().build());
 	}
 
 	@DeleteMapping("{id}")
-	public Mono<ResponseEntity<Void>> deleteUser(@PathVariable int id) {
+	public Mono<ResponseEntity<Void>> deleteUser(@PathVariable long id) {
 		return userService.deleteUser(id)
 		                  .map(ResponseEntity::ok);
 	}

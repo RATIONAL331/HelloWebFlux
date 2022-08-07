@@ -1,20 +1,21 @@
 package com.example.userservice.entity;
 
 import com.example.userservice.dto.UserDto;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 @ToString
 @Table("users")
 public class User {
 	@Id
-	private int id;
+	private long id;
 	private String name;
 	private int balance;
 

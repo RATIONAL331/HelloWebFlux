@@ -17,7 +17,7 @@ public class UserService {
 		return userRepository.findAll().map(User::toDto);
 	}
 
-	public Mono<UserDto> getUserByUserId(int userId) {
+	public Mono<UserDto> getUserByUserId(long userId) {
 		return userRepository.findById(userId).map(User::toDto);
 	}
 
@@ -27,7 +27,7 @@ public class UserService {
 		                  .map(User::toDto);
 	}
 
-	public Mono<UserDto> updateUser(int userId, Mono<UserDto> userDtoMono) {
+	public Mono<UserDto> updateUser(long userId, Mono<UserDto> userDtoMono) {
 		return userRepository.findById(userId)
 		                     // DB에서 구해오고, 업데이트 대상을 엔티티 형태로 고쳐서 다시 저장 (아이디를 같게하면 업데이트)
 		                     .flatMap(user -> userDtoMono.map(UserDto::toEntity)
@@ -37,7 +37,7 @@ public class UserService {
 
 	}
 
-	public Mono<Void> deleteUser(int userId) {
+	public Mono<Void> deleteUser(long userId) {
 		return userRepository.deleteById(userId);
 	}
 }
