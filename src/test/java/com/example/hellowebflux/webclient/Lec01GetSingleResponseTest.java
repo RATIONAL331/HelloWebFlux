@@ -1,4 +1,4 @@
-package com.example.hellowebflux;
+package com.example.hellowebflux.webclient;
 
 import com.example.hellowebflux.dto.Response;
 import org.junit.jupiter.api.Test;

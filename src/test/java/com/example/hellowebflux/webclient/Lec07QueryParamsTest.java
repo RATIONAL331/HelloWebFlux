@@ -1,4 +1,4 @@
-package com.example.hellowebflux;
+package com.example.hellowebflux.webclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,5 @@
-package com.example.hellowebflux;
+package com.example.hellowebflux.webclient;
+
 
 import com.example.hellowebflux.dto.MultiplyRequestDto;
 import com.example.hellowebflux.dto.Response;
@@ -9,7 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.test.StepVerifier;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class Lec08AttributesTest {
+public class Lec04HeadersTest {
     @Autowired
     private WebClient webClient;
 
@@ -18,11 +19,10 @@ public class Lec08AttributesTest {
         webClient.post()
                  .uri("http://localhost:8080/reactive-math//multiply")
                  .bodyValue(buildRequestDto(3, 5))
-                 // NO HEADER => {accept-encoding=gzip, user-agent=ReactorNetty/1.0.21, host=localhost:8080, accept=*/*, Content-Type=application/json, content-length=22}
-//                 .attribute("auth", "basic")
+                 .headers(httpHeaders -> httpHeaders.set("someKey", "someVal"))
+                 // {accept-encoding=gzip, user-agent=ReactorNetty/1.0.21, host=localhost:8080, accept=*/*, someKey=someVal, Content-Type=application/json, content-length=22}
+//                 .headers(httpHeaders -> httpHeaders.setBasicAuth("user", "pass"))
                  // {accept-encoding=gzip, user-agent=ReactorNetty/1.0.21, host=localhost:8080, accept=*/*, Authorization=Basic dXNlcjpwYXNz, Content-Type=application/json, content-length=22}
-//                 .attribute("auth", "oauth")
-                 // {accept-encoding=gzip, user-agent=ReactorNetty/1.0.21, host=localhost:8080, accept=*/*, Authorization=Bearer OAuth-Token, Content-Type=application/json, content-length=22}
                  .retrieve()
                  .bodyToMono(Response.class)
                  .doOnNext(System.out::println)
